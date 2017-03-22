@@ -62,16 +62,12 @@ class LaunchViewController: ViewController {
       .observeOn($.mainScheduler)
       .subscribe(
         onNext: slideImageHorizontally,
-        onCompleted: checkNotificationSettingsAndShowHomePage
+        onCompleted: presentHomeViewController
       )
       .addDisposableTo(rx_disposeBag)
   }
   
-  private func checkNotificationSettingsAndShowHomePage() {
-    // This looks like a hack but I couldn't find a way to
-    // notify observers when prompt is closed.
-    Dependencies.shared.notificationService.checkAuthorization()
-    
+  private func presentHomeViewController() {
     startAnimating()
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

@@ -48,24 +48,29 @@ extension NSObject {
 }
 
 extension Reactive where Base: NSObject {
+  
   var disposeBag: DisposeBag {
     return base.rx_disposeBag
   }
 }
 
 extension Reactive where Base: NSObject {
+  
+  /// A binding observer that logs the given string.
   var log: UIBindingObserver<Base, CustomStringConvertible> {
     return UIBindingObserver(UIElement: base) { object, log in
       object.logger.debug(log.description)
     }
   }
   
+  /// A binding observer responsible that logs the given error.
   var error: UIBindingObserver<Base, NSError> {
     return UIBindingObserver(UIElement: base) { object, error in
       object.logger.error(error.localizedDescription)
     }
   }
-  
+
+  /// A binding observer responsible for setting application's badge count.
   var badgeCount: UIBindingObserver<Base, Int> {
     return UIBindingObserver(UIElement: base) { object, count in
       UIApplication.shared.applicationIconBadgeNumber = count
@@ -73,13 +78,22 @@ extension Reactive where Base: NSObject {
     }
   }
   
+  /// A binding observer responsible for reseting application's badge count.
   var resetBadgeCount: UIBindingObserver<Base, Void> {
     return UIBindingObserver(UIElement: base) { object, count in
-      UIApplication.shared.applicationIconBadgeNumber = 0
-      object.logger.debug("Set badge count to 0")
+      if UIApplication.shared.applicationIconBadgeNumber != 0 {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        object.logger.debug("Set badge count to 0")
+      }
     }
   }
   
+  /**
+   A binding observer that tries to register for remote notifications 
+   only if user grants permission.
+   
+   It sets `wasRemoteNotificationPermissionRequested` value in user defaults.
+  */
   var registerForRemoteNotifications: UIBindingObserver<Base, Void> {
     return UIBindingObserver(UIElement: base) { object, void in
       
@@ -94,6 +108,10 @@ extension Reactive where Base: NSObject {
     }
   }
   
+  /**
+   A binding observer that sets `NotificationService.shared.apns` 
+   to current `PushDevice` instance and logs it.
+  */
   var apns: UIBindingObserver<Base, PushDevice> {
     return UIBindingObserver(UIElement: base) { object, apns in
       Dependencies.shared.notificationService.apns = apns
@@ -101,7 +119,8 @@ extension Reactive where Base: NSObject {
     }
   }
   
-  var toggleLocationServices: UIBindingObserver<Base, Bool> {
+  /// A binding observer to start/stop CoreLocation services.
+  var toggleGPS: UIBindingObserver<Base, Bool> {
     return UIBindingObserver(UIElement: base) { object, authorized in
       if authorized {
         Dependencies.shared.locationService.start()
