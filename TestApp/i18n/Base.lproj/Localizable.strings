@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  TestApp
+ 
+  Created by Ozgur Vatansever on 11/18/15.
+  Copyright © 2017 Ozgur. All rights reserved.
+*/
+
+// Permissions
+"location-permission-text" = "We need to know your location to show you campaigns around you.";
+"notification-permission-text" = "We would like to notify you whenever you bump into a campaign.";
+
+// Errors
+"reachability-error" = "Internet connection is down. Please check your network settings.";
+"notifications-error" = "Notifications are turned off. You may not be notified of campaigns.";
+
+// Geolocation
+"locations-error" = "Location services are turned off. You won't be notified of campaigns.";
+"placemarks-message" = "Sit tight while we request nearby places.";
+"route-message" = "Please wait while we draw your route.";
+
+"Hide" = "Hide";
+"OK" = "OK";

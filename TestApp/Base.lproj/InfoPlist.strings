@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  TestApp
+
+  Created by Ozgur on 17/01/2017.
+  Copyright © 2017 Ozgur. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "We need to know your location to show you campaigns around you.";
+"NSCameraUsageDescription" = "TestApp wants to access your camera.";
+"NSPhotoLibraryUsageDescription" = "TestApp wants to access your photos.";
+"NSCalendarsUsageDescription" = "TestApp wants to access your calendar.";
+"NSContactsUsageDescription" = "TestApp wants to access your contacts.";

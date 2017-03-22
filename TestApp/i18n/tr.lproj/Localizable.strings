@@ -1,0 +1,23 @@
+/*
+  Localizable.strings
+  TestApp
+ 
+  Created by Ozgur Vatansever on 11/18/15.
+  Copyright © 2017 Ozgur. All rights reserved.
+*/
+
+// Permissions
+"location-permission-text" = "Etrafınızdaki kampanyaları öğrenebilmemiz için lokasyon bilginize ihtiyacımız var.";
+"notification-permission-text" = "Etrafınızdaki kampanyalar hakkında bilgi almanız için size bildirim yollayacağız.";
+
+// Errors
+"reachability-error" = "İnternet bağlantısı yok. Lütfen network ayarlarınızı kontrol edin.";
+"notifications-error" = "Bildirimler kapalı durumda. Kampanyalardan haberdar olamayabilirsiniz.";
+
+// Geolocation
+"locations-error" = "Lokasyon servisi kapalı durumda. Kampanyalardan haberdar olmayacaksınız.";
+"placemarks-message" = "Etrafınızdaki mekanları ararken lütfen yerinizden kalkmayınız.";
+"route-message" = "Rotanızı çiziyoruz. Lütfen bekleyiniz.";
+
+"Hide" = "Gizle";
+"OK" = "Tamam";

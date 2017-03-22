@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  TestApp
+
+  Created by Ozgur on 17/01/2017.
+  Copyright © 2017 Ozgur. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "Etrafınızdaki kampanyaları öğrenebilmemiz için lokasyon bilginize ihtiyacımız var.";
+"NSCameraUsageDescription" = "TestApp kameranıza erişim izni istiyor.";
+"NSPhotoLibraryUsageDescription" = "TestApp fotoğraf galerinize erişim izni istiyor.";
+"NSCalendarsUsageDescription" = "TestApp takviminize erişim izni istiyor.";
+"NSContactsUsageDescription" = "TestApp telefon rehberinize erişim izni istiyor.";
