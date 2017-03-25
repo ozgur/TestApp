@@ -6,8 +6,8 @@
 //  Copyright © 2017 Ozgur. All rights reserved.
 //
 
-import CoreLocation
 import Foundation
+import MapKit
 import SwiftMessages
 
 let kCLLocation2DInvalid = CLLocation(
@@ -22,4 +22,10 @@ let kCLLocation2DInvalid = CLLocation(
 
 func CLLocation2DIsValid(_ loc: CLLocation) -> Bool {
   return CLLocationCoordinate2DIsValid(loc.coordinate)
+}
+
+func MKCoordinateRegionMakeWithDistance(_ coordinate: CLLocationCoordinate2D,
+                                        _ distance: CLLocationDistance)
+  -> MKCoordinateRegion {
+    return MKCoordinateRegionMakeWithDistance(coordinate, distance, distance)
 }

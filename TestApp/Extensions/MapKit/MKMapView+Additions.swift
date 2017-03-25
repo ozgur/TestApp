@@ -30,43 +30,37 @@ extension MKMapView {
   }
   
   /**
+   Returns map's current zoom level. When set, it updates the region.
+   
+   To apply new zoom with animation, please use `setZoomLevel(animated:)` method.
+   */
+  var zoomLevel: Double {
+    get {
+      return log2(360 * ((Double(frame.size.width) / 256.0) / region.span.longitudeDelta)) + 1.0
+    }
+    set {
+      setZoomLevel(newValue, animated: false)
+    }
+  }
+  
+  func setZoomLevel(_ zoomLevel: Double, animated: Bool) {
+    let span = MKCoordinateSpanMake(0, 360 / pow(2, zoomLevel) * Double(frame.size.width / 256.0))
+    setRegion(MKCoordinateRegionMake(centerCoordinate, span), animated: animated)
+  }
+  
+  /**
    Updates the visible area of the map so that all annotations added
    to map are displayed on the map.
    
    - parameter animated: Specify true if you want the map view to
    animate the transition.
    */
-  
   func zoomToFitAllAnnotations(animated: Bool) {
-    var zoomRect = MKMapRectNull
-    
-    for annotation in annotations {
-      var coordinate = kCLLocationCoordinate2DInvalid
-      
-      if let userLocation = annotation as? MKUserLocation {
-        if let userCoordinate = userLocation.location?.coordinate {
-          coordinate = userCoordinate
-        }
-      }
-      else {
-        coordinate = annotation.coordinate
-      }
-      if CLLocationCoordinate2DIsValid(coordinate) {
-        let aPoint = MKMapPointForCoordinate(coordinate)
-        let aRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
-        
-        if MKMapRectIsNull(zoomRect) {
-          zoomRect = aRect
-        }
-        else {
-          zoomRect = MKMapRectUnion(zoomRect, aRect)
-        }
-      }
+    let coordinates = annotations
+      .mapFilter { annotation in
+        return (annotation is MKUserLocation) ? nil : annotation.coordinate
     }
-    if !MKMapRectIsNull(zoomRect) {
-      let inset = -max(zoomRect.size.height, zoomRect.size.width) * 0.20
-      setVisibleMapRect(MKMapRectInset(zoomRect, inset, inset), animated: animated)
-    }
+    zoomToFit(coordinates: coordinates, animated: animated)
   }
   
   /**
@@ -76,35 +70,43 @@ extension MKMapView {
    - parameter coordinates: Coordinates to be displayed on the map.
    - parameter animated: Specify true if you want the map view to animate the transition.
    */
-  func zoomToFit(coordinates: CLLocationCoordinate2D..., animated: Bool) {
-    var zoomRect = MKMapRectNull
+  func zoomToFit(coordinates: [CLLocationCoordinate2D], animated: Bool) {
+    let pinSize = MKMapSizeMake(0.1, 0.1)
+    var mapRect = MKMapRectNull
     
-    for coordinate in coordinates {
-      if !CLLocationCoordinate2DIsValid(coordinate) {
-        continue
-      }
-      let aPoint = MKMapPointForCoordinate(coordinate)
-      let aRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
+    var locations = [CLLocationCoordinate2D]()
+    if let userLocation = userLocation.location?.coordinate {
+      locations.append(userLocation)
+    }
+    locations.append(contentsOf: coordinates)
+    
+    for location in locations {
+      guard CLLocationCoordinate2DIsValid(location) else { continue }
       
-      if MKMapRectIsNull(zoomRect) {
-        zoomRect = aRect
-      }
-      else {
-        zoomRect = MKMapRectUnion(zoomRect, aRect)
-      }
+      let aRect = MKMapRect(origin: MKMapPointForCoordinate(location), size: pinSize)
+      
+      mapRect = MKMapRectIsNull(mapRect) ? aRect : MKMapRectUnion(mapRect, aRect)
     }
     
-    if let userLocation = userLocation.location {
-      let aPoint = MKMapPointForCoordinate(userLocation.coordinate)
-      let aRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
-      zoomRect = MKMapRectUnion(zoomRect, aRect)
-    }
+    // There is nothing to show if map rect is null.
+    if MKMapRectIsNull(mapRect) { return }
     
-    if !MKMapRectIsNull(zoomRect) {
-      let inset = -max(zoomRect.size.height, zoomRect.size.width) * 0.2
-      UIView.animate(withDuration: 0.5) {
-        self.setVisibleMapRect(MKMapRectInset(zoomRect, inset, inset), animated: animated)
+    if MKMapSizeEqualToSize(pinSize, mapRect.size) {
+      // There'll be only one pin on the map.
+      mapRect = MKMapRectForCoordinateRegion(
+        MKCoordinateRegionMakeWithDistance(locations.first!, 1500, 1500)
+      )
+    }
+    else {
+      let inset = max(mapRect.size.height, mapRect.size.width) * 0.2
+      mapRect = MKMapRectInset(mapRect, -inset, -inset)
+    }
+    if animated {
+      UIView.animate(withDuration: 0.4) {
+        self.setVisibleMapRect(mapRect, animated: true)
       }
+    } else {
+      setVisibleMapRect(mapRect, animated: false)
     }
   }
   
@@ -123,13 +125,22 @@ extension MKMapView {
   }
   
   /**
+   Checks if any overlay of given type exists on the map's overlays array.
+   
+   - parameter type: Type of overlays you want to check exists.
+   */
+  func hasOverlays<T: MKOverlay>(ofType type: T.Type) -> Bool {
+    return overlays.any { $0.isKind(of: type.self) }
+  }
+  
+  /**
    Updates region of map using given center coordinate and the radius with animation.
    The duration of the animation is 1.0 seconds.
    
    - parameter coordinate: The center point of the new coordinate region.
    - parameter radius: The amount of distance in meters from the center.
    */
-  func setCenterCoordinate(_ coordinate: CLLocationCoordinate2D, withRadius radius: CLLocationDistance) {
+  func setCenter(_ coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
     UIView.animate(withDuration: 1.0) {
       self.setRegion(
         MKCoordinateRegionMakeWithDistance(coordinate, radius, radius), animated: true)
@@ -143,7 +154,29 @@ extension MKMapView {
    - parameter coordinate: The center point of the new coordinate region.
    - parameter radius: The amount of distance in meters from the center.
    */
-  func setCenterUserLocation(withRadius radius: CLLocationDistance) {
-    setCenterCoordinate(userCoordinate, withRadius: radius)
+  func setCenterUserLocation(radius: CLLocationDistance) {
+    setCenter(userCoordinate, radius: radius)
   }
+}
+
+/// Converts a region to a map rectangle.
+func MKMapRectForCoordinateRegion(_ region: MKCoordinateRegion) -> MKMapRect {
+  let aPoint = MKMapPointForCoordinate(
+    CLLocationCoordinate2DMake(
+      region.center.latitude + region.span.latitudeDelta / 2,
+      region.center.longitude - region.span.longitudeDelta / 2
+    )
+  )
+  let bPoint = MKMapPointForCoordinate(
+    CLLocationCoordinate2DMake(
+      region.center.latitude - region.span.latitudeDelta / 2,
+      region.center.longitude + region.span.longitudeDelta / 2
+    )
+  )
+  return MKMapRectMake(
+    min(aPoint.x, bPoint.x),
+    min(aPoint.y, bPoint.y),
+    abs(aPoint.x - bPoint.x),
+    abs(aPoint.y - bPoint.y)
+  )
 }
