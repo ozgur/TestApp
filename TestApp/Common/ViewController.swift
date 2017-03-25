@@ -75,3 +75,19 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     super.setActivityMessage(message)
   }
 }
+
+// MARK: Rx
+
+extension Reactive where Base: ViewController {
+  
+  /// Bindable sink for `startAnimating()`, `stopAnimating()` methods.
+  var isAnimating: UIBindingObserver<Base, Bool> {
+    return UIBindingObserver(UIElement: base) { controller, active in
+      if active {
+        controller.startAnimating()
+      } else {
+        controller.stopAnimating()
+      }
+    }
+  }
+}

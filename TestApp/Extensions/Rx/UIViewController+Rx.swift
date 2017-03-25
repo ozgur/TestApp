@@ -8,81 +8,62 @@
 
 import RxCocoa
 import RxSwift
-import NVActivityIndicatorView
 import SwiftyBeaver
 import SwiftyUserDefaults
 import UIKit
 import UserNotifications
 
-extension Reactive where Base: ViewController {
-  
-  /// Bindable sink for `startAnimating()`, `stopAnimating()` methods.
-  var isAnimating: UIBindingObserver<Base, Bool> {
-    return UIBindingObserver(UIElement: base) { controller, active in
-      if active {
-        controller.startAnimating()
-      } else {
-        controller.stopAnimating()
-      }
-    }
+private func showMessage(_ show: Bool, manager: Messages,
+                         config: Messages.Config) {
+  if show {
+    manager.show(config: config)
+  } else {
+    manager.hide(identifier: config.identifier)
   }
 }
 
 extension Reactive where Base: UIViewController {
   
-  var swifty: UIBindingObserver<Base, Messages.Config> {
-    return UIBindingObserver(UIElement: base) { controller, config in
-      Messages.top.show(config: config)
+  var message: UIBindingObserver<Base, (Bool, Messages, Messages.Config)> {
+    return UIBindingObserver(UIElement: base) { controller, context in
+      let (show, manager, config) = context
+      showMessage(show, manager: manager, config: config)
     }
   }
   
   var reachability: UIBindingObserver<Base, ReachabilityStatus> {
-    return UIBindingObserver(UIElement: base) { controller, reachabilityStatus in
-      if reachabilityStatus.unreachable {
-        var config = Messages.top.defaultConfig
-        
-        config.theme = .error
-        config.message = "reachability-error".localized
-        config.identifier = "reachability-message-view"
-        
-        Messages.top.show(config: config)
-      } else {
-        Messages.top.hide(identifier: "reachability-message-view")
-      }
+    return UIBindingObserver(UIElement: base) { controller, status in
+      var config = Messages.top.defaultConfig
+      
+      config.theme = .error
+      config.message = "reachability-error".localized
+      config.identifier = "reachability-message-view"
+      
+      showMessage(status.unreachable, manager: .top, config: config)
     }
   }
   
   var locations: UIBindingObserver<Base, Bool> {
     return UIBindingObserver(UIElement: base) { controller, authorized in
-      if authorized {
-        Messages.top.hide(identifier: "locations-message-view")
-      }
-      else {
-        var config = Messages.top.defaultConfig
-        
-        config.theme = .error
-        config.message = "locations-error".localized
-        config.identifier = "locations-message-view"
+      var config = Messages.top.defaultConfig
+      
+      config.theme = .error
+      config.message = "locations-error".localized
+      config.identifier = "locations-message-view"
 
-        Messages.top.show(config: config)
-      }
+      showMessage(!authorized, manager: .top, config: config)
     }
   }
   
   var notifications: UIBindingObserver<Base, UNAuthorizationStatus> {
     return UIBindingObserver(UIElement: base) { controller, status in
-      if status == .authorized {
-        Messages.top.hide(identifier: "notifications-message-view")
-      }
-      else if status == .denied {
-        var config = Messages.top.defaultConfig
-        
-        config.theme = .warning
-        config.message = "notifications-error".localized
-        config.identifier = "notifications-message-view"
-        
-        Messages.top.show(config: config)
-      }
+      var config = Messages.top.defaultConfig
+      
+      config.theme = .warning
+      config.message = "notifications-error".localized
+      config.identifier = "notifications-message-view"
+
+      showMessage(status != .authorized, manager: .top, config: config)
     }
   }
 }

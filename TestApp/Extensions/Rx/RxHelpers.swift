@@ -1,5 +1,5 @@
 //
-//  RxSwiftHelpers.swift
+//  RxHelpers.swift
 //  TestApp
 //
 //  Created by Ozgur on 17/01/2017.

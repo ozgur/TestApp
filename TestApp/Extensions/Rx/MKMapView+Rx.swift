@@ -125,6 +125,14 @@ extension Reactive where Base : MKMapView {
     return ControlEvent(events: source)
   }
   
+  var didUpdateUserRegion: ControlEvent<MKCoordinateRegion> {
+    let source = didUpdateUserLocation
+      .map { location -> MKCoordinateRegion in
+        return MKCoordinateRegionMakeWithDistance(location.coordinate, 125.0)
+    }
+    return ControlEvent(events: source)
+  }
+  
   var didFailToLocateUserWithError: Observable<NSError> {
     return delegate
       .methodInvoked(#selector(MKMapViewDelegate.mapView(_:didFailToLocateUserWithError:)))
@@ -133,7 +141,7 @@ extension Reactive where Base : MKMapView {
     }
   }
   
-  var didChangeUserTrackingMode:
+  public var didChangeUserTrackingMode:
     ControlEvent<(mode: MKUserTrackingMode, animated: Bool)> {
     let source = delegate
       .methodInvoked(#selector(MKMapViewDelegate.mapView(_:didChange:animated:)))
