@@ -71,7 +71,6 @@ class LaunchViewController: ViewController {
     startAnimating()
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-      self.stopAnimating()
       
       let viewController = UINavigationController(
         rootViewController: HomeViewController()
@@ -80,6 +79,7 @@ class LaunchViewController: ViewController {
       viewController.modalPresentationStyle = .custom
       
       self.present(viewController, animated: true, completion: nil)
+      self.stopAnimating()
     }
   }
   
