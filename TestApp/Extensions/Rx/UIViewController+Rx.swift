@@ -62,6 +62,7 @@ extension Reactive where Base: UIViewController {
       config.theme = .warning
       config.message = "notifications-error".localized
       config.identifier = "notifications-message-view"
+      config.duration = 5.0
 
       showMessage(status != .authorized, manager: .top, config: config)
     }

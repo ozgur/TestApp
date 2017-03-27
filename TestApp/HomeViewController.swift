@@ -239,9 +239,9 @@ class HomeViewController: ViewController {
       .bindTo(rx.setState)
       .addDisposableTo(rx.disposeBag)
     
-    // When user changes by tapping the button instead of 
-    // dragging the map, animated is sent true so, when there
-    // is a route, we should zoom in/out to cover it.
+    // When tracking mode changes to .none by tapping the button,
+    // animated is sent true so, when there is a route, we should 
+    // zoom in/out to cover it.
     mapView.rx.didChangeUserTrackingMode
       .filter ({ (mode, animated) -> Bool in
         mode == .none && animated
