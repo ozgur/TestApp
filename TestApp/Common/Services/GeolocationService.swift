@@ -14,7 +14,6 @@ import SwiftyUserDefaults
 final class GeolocationService: NSObject {
   
   static let shared = GeolocationService()
-  
   static let desiredAuthorizationStatus: CLAuthorizationStatus = .authorizedAlways
   
   private(set) var authorization: Driver<Bool>

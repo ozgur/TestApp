@@ -45,6 +45,6 @@ func ==(lhs: Company, rhs: Company) -> Bool {
 extension Company: CustomStringConvertible {
   
   var description: String {
-    return "Company <\(name)> \(icon)"
+    return "Company <\(name)>"
   }
 }

@@ -50,7 +50,7 @@ private func ==(lhs: MapState, rhs: MapState) -> Bool {
 }
 
 /**
- Returns the corresponding map state for given user tracking mode. 
+ Returns the corresponding map state for given user tracking mode.
  If not found, it returns `MapState.none`.
  
  - parameter mode: Current tracking mode of the map.
@@ -240,7 +240,7 @@ class HomeViewController: ViewController {
       .addDisposableTo(rx.disposeBag)
     
     // When tracking mode changes to .none by tapping the button,
-    // animated is sent true so, when there is a route, we should 
+    // animated is sent true so, when there is a route, we should
     // zoom in/out to cover it.
     mapView.rx.didChangeUserTrackingMode
       .filter ({ (mode, animated) -> Bool in
@@ -489,14 +489,16 @@ fileprivate extension Reactive where Base: HomeViewController {
 extension HomeViewController: UIGestureRecognizerDelegate {
   
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                         shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+                         shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+    -> Bool
+  {
     if let pinch = gestureRecognizer as? UIPinchGestureRecognizer,
       [.began, .changed, .ended, .failed].contains(pinch.state) {
       return (otherGestureRecognizer is UIPanGestureRecognizer) == false
     }
     else if let pinch = otherGestureRecognizer as? UIPinchGestureRecognizer,
       [.began, .changed, .ended, .failed].contains(pinch.state) {
-        return (gestureRecognizer is UIPanGestureRecognizer) == false
+      return (gestureRecognizer is UIPanGestureRecognizer) == false
     }
     return true
   }
