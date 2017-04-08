@@ -167,28 +167,6 @@ class HomeViewController: ViewController {
       .addDisposableTo(rx.disposeBag)
     
     
-    // When location services is disabled, we go get location
-    // using IP address and make API call to get placemarks around them.
-    $.locationService.authorizationDenied.asObservable()
-      .flatMap { () -> Driver<CLLocation> in
-        if let location = Dependencies.shared.locationService.lastLocation {
-          return Driver.just(location)
-        }
-        else {
-          return API.shared.getLocationViaIP()
-            .asDriver(onErrorJustReturn: kCLLocation2DInvalid)
-        }
-      }
-      .filter { location in
-        CLLocation2DIsValid(location)
-      }
-      .flatMap { location in
-        API.shared.getPlacemarks(location: location)
-          .trackActivity(networkActivity)
-      }
-      .bindTo(rx.showAnnotations)
-      .addDisposableTo(rx.disposeBag)
-    
     // Observe changes in API activity to act accordingly.
     networkActivity
       .map({ loading in

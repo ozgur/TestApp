@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, willFinishLaunchingWithOptions
     launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     
-    Defaults[.distanceFilter] = 15000 // TODO: This will be specified by user later on.
+    Defaults[.distanceFilter] = 5000 // TODO: This will be specified by user later on.
     
     UILabel.appearance().textColor = R.blackTextColor
     UILabel.appearance().font = R.defaultFont(ofSize: 15)
@@ -145,6 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Unlike CoreLocation, iOS does not inform users of changes in
     // remote notification settings automatically so we have to do it manually.
     rx.applicationDidBecomeActive
+      .delay(0.5, scheduler: Dependencies.shared.mainScheduler)
       .mapToVoid()
       .subscribe(onNext: {
         Dependencies.shared.notificationService.notifyObserversOfAuthorizationStatus()
