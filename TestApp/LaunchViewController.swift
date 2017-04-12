@@ -7,7 +7,6 @@
 //
 
 import Cartography
-import RxAlamofire
 import RxCocoa
 import RxSwift
 import RxSwiftExt
