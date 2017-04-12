@@ -39,7 +39,7 @@ github "RxSwiftCommunity/RxSwiftExt"
 
 
 # i18n
-github "JackieQi/Swifternalization" "swift3"
+github "tomkowz/Swifternalization" ~> 1.3.2
 
 
 # Logging
