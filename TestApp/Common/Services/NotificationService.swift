@@ -53,7 +53,6 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate  {
     // This is a hack method to manually notify all observers listening
     // to authorization status changes.
     getAuthorizationSettings { [unowned self] settings in
-      print("Push notification authorizationStatus 2: \(settings.authorizationStatus.rawValue)")
       self.authorizationStatus.onNext(settings.authorizationStatus)
     }
   }

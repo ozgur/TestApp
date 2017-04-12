@@ -414,13 +414,17 @@ fileprivate extension Reactive where Base: HomeViewController {
         
         controller.mapView.removeOverlays(ofType: MKPolyline.self)
         controller.mapView.removeOverlays(ofType: PlacemarkRadar.self)
+
+        var coordinates = [CLLocationCoordinate2D]()
+        coordinates.append(placemark.coordinate)
         
         for route in routes {
           controller.mapView.add(route.polyline, level: .aboveRoads)
+          coordinates.append(route.polyline.coordinate)
         }
         controller.mapView.add(placemark.radar, level: .aboveRoads)
         controller.mapState = .routing(placemark)
-        controller.mapView.zoomToFit(coordinates: [placemark.coordinate], animated: true)
+        controller.mapView.zoomToFit(coordinates: coordinates, animated: true)
       case .failure:
         Wireframe.presentAlert("route-request-failed".localized)
       }
