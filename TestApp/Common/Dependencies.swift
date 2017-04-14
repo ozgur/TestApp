@@ -11,7 +11,7 @@ import RxSwift
 
 // Just to remember on what I am dependent.
 
-class Dependencies {
+final class Dependencies {
 
   static let shared = Dependencies()
 

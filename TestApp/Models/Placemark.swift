@@ -110,23 +110,12 @@ fileprivate class PlacemarkCoordinateTransform: TransformType {
 
 struct PlacemarkResponse: Equatable {
   
-  static let invalid = PlacemarkResponse()
+  static let invalid = PlacemarkResponse(placemarks: [.invalid])
 
   let placemarks: [Placemark]
   
   init(placemarks: [Placemark]) {
     self.placemarks = placemarks
-  }
-  
-  init() {
-    self.init(placemarks: [.invalid])
-  }
-  
-  var placemark: Placemark? {
-    if placemarks.first != .invalid {
-      return placemarks.first
-    }
-    return nil
   }
 }
 
