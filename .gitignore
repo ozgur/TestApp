@@ -45,3 +45,7 @@ Carthage
 
 # R.swift
 *.generated.swift
+
+# Sensitive Data
+TestApp/Debug.plist
+TestApp/Release.plist
