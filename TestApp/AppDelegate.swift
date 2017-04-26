@@ -6,11 +6,9 @@
 //  Copyright © 2017 Ozgur. All rights reserved.
 //
 
-import AlamofireNetworkActivityIndicator
 import CoreLocation
 import Device
 import RxSwift
-import SwiftyBeaver
 import SwiftyUserDefaults
 import UIKit
 
@@ -19,31 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
   var window: UIWindow?
   
-  // MARK: Helpers
-  
-  private func configureNetworkActivityIndicator() {
-    NetworkActivityIndicatorManager.shared.isEnabled = true
-    NetworkActivityIndicatorManager.shared.startDelay = 1.0
-    NetworkActivityIndicatorManager.shared.completionDelay = 0.5
-  }
-  
-  private func configureLogger() {
-    let console = ConsoleDestination()
-    console.format = "$Dyyyy/MM/dd HH:mm:ss.SSS$d $C$N.$F$c:$l $L: $M"
-    console.asynchronously = true // TODO: true for production
-    logger.addDestination(console)
-  }
-  
   func application(_ application: UIApplication, willFinishLaunchingWithOptions
     launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     
     Defaults[.distanceFilter] = 5000 // TODO: This will be specified by user later on.
     
-    UILabel.appearance().textColor = R.blackTextColor
-    UILabel.appearance().font = R.defaultFont(ofSize: 15)
-    
-    configureLogger()
-    configureNetworkActivityIndicator()
+    configure()
     return true
   }
   

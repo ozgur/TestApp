@@ -103,11 +103,6 @@ class HomeViewController: ViewController {
     
     extendedLayoutIncludesOpaqueBars = true
     
-    navigationBar?.backgroundColor = .clear
-    navigationBar?.setBackgroundImage(UIImage(), for: .default)
-    navigationBar?.shadowImage = UIImage()
-    navigationBar?.isTranslucent = true
-    
     mapView = MKMapView(frame: .zero, delegate: self)
     mapView.showsCompass = false
     view.addSubview(mapView)
@@ -118,12 +113,12 @@ class HomeViewController: ViewController {
     })
     setTranslatesAutoresizingMaskIntoConstraintsIfRequired()
     
-    controllerWasPresented.drive(onNext: { [unowned self] in
-      // We register to Rx sequences right after view controller
-      // has been presented.
-      self.setupRx()
-      
-    })
+    rx.viewDidAppear
+      .take(1)
+      .subscribe(onNext: { [unowned self] animated in
+        // We register to Rx sequences right after view becomes visible.
+        self.setupRx()
+      })
       .addDisposableTo(rx.disposeBag)
   }
   
@@ -414,7 +409,7 @@ fileprivate extension Reactive where Base: HomeViewController {
         
         controller.mapView.removeOverlays(ofType: MKPolyline.self)
         controller.mapView.removeOverlays(ofType: PlacemarkRadar.self)
-
+        
         var coordinates = [CLLocationCoordinate2D]()
         coordinates.append(placemark.coordinate)
         

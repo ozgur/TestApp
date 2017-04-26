@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseURL</key>
+	<string>geololo.herokuapp.com</string>
+	<key>GoogleMaps</key>
+	<dict>
+		<key>Key</key>
+		<string>AIzaSyDWQtWWB_fZQBK92szLByeHTvOCcpAdq5U</string>
+	</dict>
+</dict>
+</plist>

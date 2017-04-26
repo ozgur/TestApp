@@ -50,12 +50,12 @@ class LaunchViewController: ViewController {
     
     rx.viewDidLayoutSubviews
       .subscribe(onNext: configureScrollView)
-      .addDisposableTo(rx_disposeBag)
+      .addDisposableTo(rx.disposeBag)
     
     // Show permission dialog
     
     Observable<Int>
-      .interval(0.011, scheduler: $.serialWorkScheduler)
+      .interval(0.011, scheduler: $.mainScheduler)
       .mapToVoid()
       .takeUntil($.permissionService.prompt().asObservable())
       .observeOn($.mainScheduler)
@@ -63,7 +63,7 @@ class LaunchViewController: ViewController {
         onNext: slideImageHorizontally,
         onCompleted: presentHomeViewController
       )
-      .addDisposableTo(rx_disposeBag)
+      .addDisposableTo(rx.disposeBag)
   }
   
   private func presentHomeViewController() {
@@ -76,9 +76,9 @@ class LaunchViewController: ViewController {
       )
       viewController.transitioningDelegate = self
       viewController.modalPresentationStyle = .custom
-      
-      self.present(viewController, animated: true, completion: nil)
+
       self.stopAnimating()
+      self.present(viewController, animated: true, completion: nil)
     }
   }
   

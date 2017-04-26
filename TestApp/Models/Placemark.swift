@@ -49,6 +49,7 @@ class Placemark: NSObject, Mappable {
     if address == nil {
       address <- map["address"]
     }
+    
   }
 }
 

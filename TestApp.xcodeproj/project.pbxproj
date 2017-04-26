@@ -9,6 +9,26 @@
 /* Begin PBXBuildFile section */
 		2E0BE3D71E14067C0043733A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BE3D61E14067C0043733A /* AppDelegate.swift */; };
 		2E0BE3E91E1407790043733A /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BE3E81E1407790043733A /* Cartfile */; };
+		2E102D7B1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102D7A1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift */; };
+		2E102D871EB0D88800737A99 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D841EB0D88800737A99 /* GoogleMaps.framework */; };
+		2E102D881EB0D88800737A99 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D851EB0D88800737A99 /* GoogleMapsBase.framework */; };
+		2E102D891EB0D88800737A99 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D861EB0D88800737A99 /* GoogleMapsCore.framework */; };
+		2E102D8C1EB0D8F300737A99 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E102D8B1EB0D8F300737A99 /* GoogleMaps.bundle */; };
+		2E102D8E1EB0D93300737A99 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D8D1EB0D93300737A99 /* Accelerate.framework */; };
+		2E102D901EB0D93A00737A99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D8F1EB0D93A00737A99 /* CoreData.framework */; };
+		2E102D921EB0D93F00737A99 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D911EB0D93F00737A99 /* CoreGraphics.framework */; };
+		2E102D941EB0D95400737A99 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D931EB0D95400737A99 /* CoreText.framework */; };
+		2E102D961EB0D96400737A99 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D951EB0D96400737A99 /* GLKit.framework */; };
+		2E102D981EB0D96E00737A99 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D971EB0D96E00737A99 /* ImageIO.framework */; };
+		2E102D9A1EB0D97A00737A99 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D991EB0D97A00737A99 /* libc++.tbd */; };
+		2E102D9C1EB0D98800737A99 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D9B1EB0D98800737A99 /* libz.tbd */; };
+		2E102D9E1EB0D99100737A99 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D9D1EB0D99100737A99 /* OpenGLES.framework */; };
+		2E102DA01EB0D99D00737A99 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102D9F1EB0D99D00737A99 /* SystemConfiguration.framework */; };
+		2E102DA21EB0D9A900737A99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102DA11EB0D9A900737A99 /* UIKit.framework */; };
+		2E102DA51EB0DA4900737A99 /* AppDelegate+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102DA41EB0DA4900737A99 /* AppDelegate+Config.swift */; };
+		2E102DAA1EB0DF6F00737A99 /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DA91EB0DF6F00737A99 /* Debug.plist */; };
+		2E102DAC1EB0E0FD00737A99 /* Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DAB1EB0E0FD00737A99 /* Release.plist */; };
+		2E102DAE1EB0E23A00737A99 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102DAD1EB0E23A00737A99 /* Config.swift */; };
 		2E1B0D011E65A0A100A036F2 /* HEXColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1B0D001E65A0A100A036F2 /* HEXColor.framework */; };
 		2E1B0D091E65AC6100A036F2 /* UIControl+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B0D041E65AC6100A036F2 /* UIControl+Additions.swift */; };
 		2E1B0D0A1E65AC6100A036F2 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B0D051E65AC6100A036F2 /* UIImage+Additions.swift */; };
@@ -115,6 +135,26 @@
 		2E0BE3F11E140D570043733A /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		2E0BE3F81E140E270043733A /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		2E0BE3F91E140E700043733A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2E102D7A1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorView+Additions.swift"; sourceTree = "<group>"; };
+		2E102D841EB0D88800737A99 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		2E102D851EB0D88800737A99 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		2E102D861EB0D88800737A99 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
+		2E102D8B1EB0D8F300737A99 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		2E102D8D1EB0D93300737A99 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		2E102D8F1EB0D93A00737A99 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2E102D911EB0D93F00737A99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2E102D931EB0D95400737A99 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		2E102D951EB0D96400737A99 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2E102D971EB0D96E00737A99 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		2E102D991EB0D97A00737A99 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2E102D9B1EB0D98800737A99 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2E102D9D1EB0D99100737A99 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2E102D9F1EB0D99D00737A99 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2E102DA11EB0D9A900737A99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2E102DA41EB0DA4900737A99 /* AppDelegate+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Config.swift"; sourceTree = "<group>"; };
+		2E102DA91EB0DF6F00737A99 /* Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Debug.plist; sourceTree = "<group>"; };
+		2E102DAB1EB0E0FD00737A99 /* Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Release.plist; sourceTree = "<group>"; };
+		2E102DAD1EB0E23A00737A99 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2E1B0D001E65A0A100A036F2 /* HEXColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HEXColor.framework; path = Carthage/Build/iOS/HEXColor.framework; sourceTree = "<group>"; };
 		2E1B0D041E65AC6100A036F2 /* UIControl+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Additions.swift"; sourceTree = "<group>"; };
 		2E1B0D051E65AC6100A036F2 /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
@@ -212,6 +252,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102DA21EB0D9A900737A99 /* UIKit.framework in Frameworks */,
+				2E102DA01EB0D99D00737A99 /* SystemConfiguration.framework in Frameworks */,
+				2E102D9E1EB0D99100737A99 /* OpenGLES.framework in Frameworks */,
+				2E102D9C1EB0D98800737A99 /* libz.tbd in Frameworks */,
+				2E102D9A1EB0D97A00737A99 /* libc++.tbd in Frameworks */,
+				2E102D981EB0D96E00737A99 /* ImageIO.framework in Frameworks */,
+				2E102D961EB0D96400737A99 /* GLKit.framework in Frameworks */,
+				2E102D941EB0D95400737A99 /* CoreText.framework in Frameworks */,
+				2E102D921EB0D93F00737A99 /* CoreGraphics.framework in Frameworks */,
+				2E102D901EB0D93A00737A99 /* CoreData.framework in Frameworks */,
+				2E102D8E1EB0D93300737A99 /* Accelerate.framework in Frameworks */,
 				2E4F51A61E65D3F900C1C809 /* RxKeyboard.framework in Frameworks */,
 				2E4F51A41E65D3B300C1C809 /* RxGesture.framework in Frameworks */,
 				2E1B0D011E65A0A100A036F2 /* HEXColor.framework in Frameworks */,
@@ -227,8 +278,10 @@
 				2E52416E1E2E56A100310785 /* Swifternalization.framework in Frameworks */,
 				2E5241561E2E4BE900310785 /* SwiftyBeaver.framework in Frameworks */,
 				2EE7AADD1E2960BB0021858C /* NVActivityIndicatorView.framework in Frameworks */,
+				2E102D881EB0D88800737A99 /* GoogleMapsBase.framework in Frameworks */,
 				2EE7AADE1E2960BB0021858C /* RxAlamofire.framework in Frameworks */,
 				2EE7AADF1E2960BB0021858C /* RxBlocking.framework in Frameworks */,
+				2E102D891EB0D88800737A99 /* GoogleMapsCore.framework in Frameworks */,
 				2EE7AAE01E2960BB0021858C /* RxCocoa.framework in Frameworks */,
 				2EE7AAE11E2960BB0021858C /* RxOptional.framework in Frameworks */,
 				2EE7AAE21E2960BB0021858C /* RxSwift.framework in Frameworks */,
@@ -239,6 +292,7 @@
 				2EA678161E26A18500A9948A /* AlamofireNetworkActivityIndicator.framework in Frameworks */,
 				2EA678171E26A18500A9948A /* AlamofireObjectMapper.framework in Frameworks */,
 				2EA678181E26A18500A9948A /* Cartography.framework in Frameworks */,
+				2E102D871EB0D88800737A99 /* GoogleMaps.framework in Frameworks */,
 				2EA6781A1E26A18500A9948A /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +322,6 @@
 		2E0BE3D51E14067C0043733A /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				2E0BE3D61E14067C0043733A /* AppDelegate.swift */,
 				2E52413E1E2CD56A00310785 /* Application */,
 				2EB70A281E65BF73000DB1C9 /* Common */,
 				2E52418F1E2E58AD00310785 /* Models */,
@@ -284,6 +337,17 @@
 		2E0BE3EB1E140D570043733A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E102DA11EB0D9A900737A99 /* UIKit.framework */,
+				2E102D9F1EB0D99D00737A99 /* SystemConfiguration.framework */,
+				2E102D9D1EB0D99100737A99 /* OpenGLES.framework */,
+				2E102D9B1EB0D98800737A99 /* libz.tbd */,
+				2E102D991EB0D97A00737A99 /* libc++.tbd */,
+				2E102D971EB0D96E00737A99 /* ImageIO.framework */,
+				2E102D951EB0D96400737A99 /* GLKit.framework */,
+				2E102D931EB0D95400737A99 /* CoreText.framework */,
+				2E102D911EB0D93F00737A99 /* CoreGraphics.framework */,
+				2E102D8F1EB0D93A00737A99 /* CoreData.framework */,
+				2E102D8D1EB0D93300737A99 /* Accelerate.framework */,
 				2E4F51A51E65D3F900C1C809 /* RxKeyboard.framework */,
 				2E4F51A31E65D3B300C1C809 /* RxGesture.framework */,
 				2E1B0D001E65A0A100A036F2 /* HEXColor.framework */,
@@ -318,6 +382,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2E102D831EB0D87700737A99 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				2E102D8A1EB0D8E400737A99 /* Resources */,
+				2E102D851EB0D88800737A99 /* GoogleMapsBase.framework */,
+				2E102D861EB0D88800737A99 /* GoogleMapsCore.framework */,
+				2E102D841EB0D88800737A99 /* GoogleMaps.framework */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		2E102D8A1EB0D8E400737A99 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2E102D8B1EB0D8F300737A99 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2E102DA31EB0DA3A00737A99 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2E0BE3D61E14067C0043733A /* AppDelegate.swift */,
+				2E102DA41EB0DA4900737A99 /* AppDelegate+Config.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2E102DA81EB0DF4E00737A99 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2E102DAB1EB0E0FD00737A99 /* Release.plist */,
+				2E102DA91EB0DF6F00737A99 /* Debug.plist */,
+				2E102DAD1EB0E23A00737A99 /* Config.swift */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		2E1B0D031E65AC6100A036F2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +437,7 @@
 			children = (
 				2E1B0D121E65ACCF00A036F2 /* R+Additions.swift */,
 				2E1B0D141E65AD6A00A036F2 /* Cartography+Additions.swift */,
+				2E102D7A1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -368,6 +471,7 @@
 		2E52413E1E2CD56A00310785 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2E102DA31EB0DA3A00737A99 /* AppDelegate */,
 				2E5241331E2CCFE400310785 /* Main */,
 				2E5241451E2CF01200310785 /* Home */,
 			);
@@ -467,6 +571,7 @@
 		2E6E006F1E5C455600C5DA1C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				2E102D831EB0D87700737A99 /* GoogleMaps */,
 				2E6E00701E5C456400C5DA1C /* BubbleTransition.swift */,
 			);
 			path = External;
@@ -483,6 +588,7 @@
 		2EA678261E26A9DE00A9948A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2E102DA81EB0DF4E00737A99 /* Configuration */,
 				2EA678361E26AED900A9948A /* R.generated.swift */,
 				2E0BE3E21E14067D0043733A /* Info.plist */,
 				2E0BE3F81E140E270043733A /* TestApp.entitlements */,
@@ -618,11 +724,14 @@
 				2E52417C1E2E57A100310785 /* Clan-Book.otf in Resources */,
 				2E52417B1E2E57A100310785 /* Clan-Bold.otf in Resources */,
 				2E2253AF1E311DE5004CC65D /* LaunchScreen.storyboard in Resources */,
+				2E102D8C1EB0D8F300737A99 /* GoogleMaps.bundle in Resources */,
 				2E52417E1E2E57A100310785 /* Clan-News.otf in Resources */,
+				2E102DAA1EB0DF6F00737A99 /* Debug.plist in Resources */,
 				2E2253B11E311E0E004CC65D /* tr.json in Resources */,
 				2E52417A1E2E57A100310785 /* Clan-Black.otf in Resources */,
 				2E52418D1E2E584300310785 /* en.json in Resources */,
 				2E52418C1E2E584300310785 /* base.json in Resources */,
+				2E102DAC1EB0E0FD00737A99 /* Release.plist in Resources */,
 				2E92ED9B1E5C79CB003DA8D5 /* Localizable.strings in Resources */,
 				2E52417F1E2E57A100310785 /* Clan-Thin.otf in Resources */,
 				2E0BE3E91E1407790043733A /* Cartfile in Resources */,
@@ -697,9 +806,11 @@
 				2EB70A3D1E65BF9D000DB1C9 /* Helpers.swift in Sources */,
 				2E1B0D0C1E65AC6100A036F2 /* UIView+Additions.swift in Sources */,
 				2EB70A3F1E65BF9D000DB1C9 /* Protocols.swift in Sources */,
+				2E102DA51EB0DA4900737A99 /* AppDelegate+Config.swift in Sources */,
 				2E6E00711E5C456400C5DA1C /* BubbleTransition.swift in Sources */,
 				2E1B0D091E65AC6100A036F2 /* UIControl+Additions.swift in Sources */,
 				2EB70A401E65BF9D000DB1C9 /* Transform.swift in Sources */,
+				2E102D7B1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift in Sources */,
 				2EC9E8181E85B468001EF407 /* MKMapView+Rx.swift in Sources */,
 				2E8130CE1E54A54700D7E70D /* ChannelPreference.swift in Sources */,
 				2EC9E8151E85B468001EF407 /* Alamofire+Rx.swift in Sources */,
@@ -736,6 +847,7 @@
 				2E92ED961E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift in Sources */,
 				2E8130C11E535B8300D7E70D /* Company.swift in Sources */,
 				2EB70A311E65BF8B000DB1C9 /* ReachabilityService.swift in Sources */,
+				2E102DAE1EB0E23A00737A99 /* Config.swift in Sources */,
 				2E1B0D111E65AC9A00A036F2 /* MKMapView+Additions.swift in Sources */,
 				2EC9E8141E85B468001EF407 /* ActivityIndicator.swift in Sources */,
 				2EB70A431E65BF9D000DB1C9 /* Wireframe.swift in Sources */,
@@ -872,10 +984,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TestApp/External",
+					"$(PROJECT_DIR)/TestApp/External/GoogleMaps",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.geololo.Geololo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -892,10 +1007,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TestApp/External",
+					"$(PROJECT_DIR)/TestApp/External/GoogleMaps",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.geololo.Geololo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
