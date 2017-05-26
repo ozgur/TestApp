@@ -14,7 +14,7 @@ extension R {
   static let blackTextColor = UIColor("#323232")
   static let whiteTextColor = UIColor("#f9f9f9")
   static let failureColor = UIColor("#ee1c01")
-  static let successColor = UIColor("#00c881")
+  static let successColor = UIColor("#4bb543")
   static let routeColor = UIColor("#4285f4")
   static let radarColor = UIColor("#f07177").withAlphaComponent(0.2)
   

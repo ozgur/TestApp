@@ -233,6 +233,10 @@ extension Reactive where Base : MKMapView {
     }
     return ControlEvent(events: source)
   }
+  
+  var userLocation: Observable<MKUserLocation?> {
+    return observeWeakly(MKUserLocation.self, "userLocation")
+  }
 }
 
 extension Reactive where Base: MKMapView {
@@ -242,37 +246,4 @@ extension Reactive where Base: MKMapView {
       mapView.showsUserLocation = showsUserLocation
     }
   }
-  
-  func routes(to: Placemark, via: MKDirectionsTransportType)
-    -> Observable<MKDirectionsResult> {
-      
-      return Observable.create { observer in
-        
-        let destination = MKMapItem(placemark: to.placemark)
-        destination.name = to.name
-        destination.phoneNumber = to.address?.phoneNumber
-        
-        let request = MKDirectionsRequest()
-        
-        request.source = MKMapItem.forCurrentLocation()
-        request.destination = destination
-        request.requestsAlternateRoutes = false
-        request.departureDate = Date()
-        
-        let directions = MKDirections(request: request)
-        directions.calculate { response, error in
-          if let error = error {
-            observer.onNext(.failure(error))
-          }
-          else {
-            observer.onNext(.success(to, response?.routes ?? []))
-          }
-          observer.onCompleted()
-        }
-        return Disposables.create {
-          directions.cancel()
-        }
-      }
-  }
 }
-

@@ -20,6 +20,17 @@ let kCLLocation2DInvalid = CLLocation(
   timestamp: Date() // Don't worry, we won't check this unless coordinate is valid.
 )
 
+let kCLLocationCoordinate2DZero = CLLocationCoordinate2DMake(0, 0)
+// https://en.wikipedia.org/wiki/Geographical_centre_of_Earth
+let kCLLocationCoordinate2DCenter = CLLocationCoordinate2DMake(39.0, 34.0)
+
+
+extension CLLocationCoordinate2D {
+  static let center = kCLLocationCoordinate2DCenter
+  static let invalid = kCLLocationCoordinate2DInvalid
+  static let zero = kCLLocationCoordinate2DZero
+}
+
 func CLLocation2DIsValid(_ loc: CLLocation) -> Bool {
   return CLLocationCoordinate2DIsValid(loc.coordinate)
 }

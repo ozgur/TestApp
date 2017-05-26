@@ -7,6 +7,7 @@
 */
 
 "NSLocationAlwaysUsageDescription" = "We need to know your location to show you campaigns around you.";
+"NSLocationWhenInUseUsageDescription" = "We need to know your location to show you campaigns around you.";
 "NSCameraUsageDescription" = "TestApp wants to access your camera.";
 "NSPhotoLibraryUsageDescription" = "TestApp wants to access your photos.";
 "NSCalendarsUsageDescription" = "TestApp wants to access your calendar.";

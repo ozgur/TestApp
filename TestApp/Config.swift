@@ -14,14 +14,17 @@ struct Config {
   static let `default` = Config()
   
   let baseURL: URL
-  let GoogleMapsAPIKey: String
+  let GMapsAPIKey: String
   
   private init() {
-    let name = Bundle.main.object(forInfoDictionaryKey: "CFBundleConfigurationName")
-    let file = Bundle.main.path(forResource: name as? String, ofType: "plist")
+    let name = Bundle.main.object(
+      forInfoDictionaryKey: "CFBundleConfigurationName"
+    ) as? String
+
+    let file = Bundle.main.path(forResource: name, ofType: "plist")
     let config = JSON(NSDictionary(contentsOfFile: file!)!)
 
     baseURL = URL(string: config["BaseURL"].stringValue)!
-    GoogleMapsAPIKey = config["GoogleMaps"]["Key"].stringValue
+    GMapsAPIKey = config["GoogleMaps"]["Key"].stringValue
   }
 }

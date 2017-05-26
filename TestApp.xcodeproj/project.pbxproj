@@ -29,6 +29,10 @@
 		2E102DAA1EB0DF6F00737A99 /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DA91EB0DF6F00737A99 /* Debug.plist */; };
 		2E102DAC1EB0E0FD00737A99 /* Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DAB1EB0E0FD00737A99 /* Release.plist */; };
 		2E102DAE1EB0E23A00737A99 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102DAD1EB0E23A00737A99 /* Config.swift */; };
+		2E102DB11EB0F46500737A99 /* GoogleMaps+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102DB01EB0F46500737A99 /* GoogleMaps+Additions.swift */; };
+		2E102DB71EB0FC4C00737A99 /* Retro.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DB51EB0FC4C00737A99 /* Retro.json */; };
+		2E102DB81EB0FC4C00737A99 /* Silver.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E102DB61EB0FC4C00737A99 /* Silver.json */; };
+		2E102DBA1EB10C5500737A99 /* GMSMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E102DB91EB10C5500737A99 /* GMSMapView+Rx.swift */; };
 		2E1B0D011E65A0A100A036F2 /* HEXColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1B0D001E65A0A100A036F2 /* HEXColor.framework */; };
 		2E1B0D091E65AC6100A036F2 /* UIControl+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B0D041E65AC6100A036F2 /* UIControl+Additions.swift */; };
 		2E1B0D0A1E65AC6100A036F2 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B0D051E65AC6100A036F2 /* UIImage+Additions.swift */; };
@@ -66,6 +70,7 @@
 		2E5241B31E2F950000310785 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5241B21E2F950000310785 /* Miscellaneous.swift */; };
 		2E5241B71E2F9FCE00310785 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5241B61E2F9FCE00310785 /* Device.framework */; };
 		2E6E00711E5C456400C5DA1C /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E00701E5C456400C5DA1C /* BubbleTransition.swift */; };
+		2E7358A21EB11A150053894B /* PlacemarkAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7358A11EB11A150053894B /* PlacemarkAnnotationView.swift */; };
 		2E8130BF1E53341C00D7E70D /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8130BE1E53341C00D7E70D /* Placemark.swift */; };
 		2E8130C11E535B8300D7E70D /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8130C01E535B8300D7E70D /* Company.swift */; };
 		2E8130C41E54829C00D7E70D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8130C31E54829C00D7E70D /* SwiftyJSON.framework */; };
@@ -74,7 +79,6 @@
 		2E8130CE1E54A54700D7E70D /* ChannelPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8130CD1E54A54700D7E70D /* ChannelPreference.swift */; };
 		2E8130CF1E54BEC700D7E70D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0BE3F91E140E700043733A /* MapKit.framework */; };
 		2E8130D11E54BECC00D7E70D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8130D01E54BECC00D7E70D /* CoreLocation.framework */; };
-		2E92ED961E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92ED951E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift */; };
 		2E92ED9B1E5C79CB003DA8D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E92ED9D1E5C79CB003DA8D5 /* Localizable.strings */; };
 		2EA678151E26A16900A9948A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0BE3EC1E140D570043733A /* Alamofire.framework */; };
 		2EA678161E26A18500A9948A /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0BE3ED1E140D570043733A /* AlamofireNetworkActivityIndicator.framework */; };
@@ -155,6 +159,10 @@
 		2E102DA91EB0DF6F00737A99 /* Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Debug.plist; sourceTree = "<group>"; };
 		2E102DAB1EB0E0FD00737A99 /* Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Release.plist; sourceTree = "<group>"; };
 		2E102DAD1EB0E23A00737A99 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2E102DB01EB0F46500737A99 /* GoogleMaps+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoogleMaps+Additions.swift"; sourceTree = "<group>"; };
+		2E102DB51EB0FC4C00737A99 /* Retro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Retro.json; sourceTree = "<group>"; };
+		2E102DB61EB0FC4C00737A99 /* Silver.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Silver.json; sourceTree = "<group>"; };
+		2E102DB91EB10C5500737A99 /* GMSMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMapView+Rx.swift"; sourceTree = "<group>"; };
 		2E1B0D001E65A0A100A036F2 /* HEXColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HEXColor.framework; path = Carthage/Build/iOS/HEXColor.framework; sourceTree = "<group>"; };
 		2E1B0D041E65AC6100A036F2 /* UIControl+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Additions.swift"; sourceTree = "<group>"; };
 		2E1B0D051E65AC6100A036F2 /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 		2E5241B21E2F950000310785 /* Miscellaneous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
 		2E5241B61E2F9FCE00310785 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		2E6E00701E5C456400C5DA1C /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
+		2E7358A11EB11A150053894B /* PlacemarkAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacemarkAnnotationView.swift; sourceTree = "<group>"; };
 		2E8130BE1E53341C00D7E70D /* Placemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placemark.swift; sourceTree = "<group>"; };
 		2E8130C01E535B8300D7E70D /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		2E8130C31E54829C00D7E70D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -201,7 +210,6 @@
 		2E8130CB1E54A52D00D7E70D /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		2E8130CD1E54A54700D7E70D /* ChannelPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelPreference.swift; sourceTree = "<group>"; };
 		2E8130D01E54BECC00D7E70D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2E92ED951E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacemarkAnnotationView.swift; sourceTree = "<group>"; };
 		2E92ED9C1E5C79CB003DA8D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E92ED9E1E5C79CD003DA8D5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2EA6781B1E26A18500A9948A /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
@@ -420,6 +428,23 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		2E102DB31EB0FB7600737A99 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				2E102DB41EB0FC4C00737A99 /* Styles */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		2E102DB41EB0FC4C00737A99 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				2E102DB51EB0FC4C00737A99 /* Retro.json */,
+				2E102DB61EB0FC4C00737A99 /* Silver.json */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		2E1B0D031E65AC6100A036F2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +463,7 @@
 				2E1B0D121E65ACCF00A036F2 /* R+Additions.swift */,
 				2E1B0D141E65AD6A00A036F2 /* Cartography+Additions.swift */,
 				2E102D7A1EB0D4C300737A99 /* NVActivityIndicatorView+Additions.swift */,
+				2E102DB01EB0F46500737A99 /* GoogleMaps+Additions.swift */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -498,6 +524,7 @@
 		2E5241711E2E57A100310785 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E102DB31EB0FB7600737A99 /* GoogleMaps */,
 				2E5241721E2E57A100310785 /* Fonts */,
 			);
 			path = Resources;
@@ -580,7 +607,7 @@
 		2E92ED941E5C6794003DA8D5 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				2E92ED951E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift */,
+				2E7358A11EB11A150053894B /* PlacemarkAnnotationView.swift */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -637,6 +664,7 @@
 				2EC9E8121E85B468001EF407 /* UIViewController+Rx.swift */,
 				2EC9E8131E85B468001EF407 /* UNUserNotificationCenter+Rx.swift */,
 				2EC9E81D1E85B482001EF407 /* UIGestureRecognizer+Rx.swift */,
+				2E102DB91EB10C5500737A99 /* GMSMapView+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -715,11 +743,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102DB71EB0FC4C00737A99 /* Retro.json in Resources */,
 				2E52418E1E2E584300310785 /* expressions.json in Resources */,
 				2EEA580A1E60C5B600631033 /* Assets.xcassets in Resources */,
 				2E52417D1E2E57A100310785 /* Clan-Medium.otf in Resources */,
 				2E5241801E2E57A100310785 /* Clan-Ultra.otf in Resources */,
 				2EA6782B1E26ABCA00A9948A /* Scripts in Resources */,
+				2E102DB81EB0FC4C00737A99 /* Silver.json in Resources */,
 				2E5241A31E2EB83F00310785 /* InfoPlist.strings in Resources */,
 				2E52417C1E2E57A100310785 /* Clan-Book.otf in Resources */,
 				2E52417B1E2E57A100310785 /* Clan-Bold.otf in Resources */,
@@ -829,6 +859,8 @@
 				2EC9E8161E85B468001EF407 /* AppDelegate+Rx.swift in Sources */,
 				2E52418A1E2E584300310785 /* Internationalization.swift in Sources */,
 				2E1B0D151E65AD6A00A036F2 /* Cartography+Additions.swift in Sources */,
+				2E102DBA1EB10C5500737A99 /* GMSMapView+Rx.swift in Sources */,
+				2E7358A21EB11A150053894B /* PlacemarkAnnotationView.swift in Sources */,
 				2EC9E81E1E85B482001EF407 /* UIGestureRecognizer+Rx.swift in Sources */,
 				2E0BE3D71E14067C0043733A /* AppDelegate.swift in Sources */,
 				2E8130CA1E54A18500D7E70D /* Catalogue.swift in Sources */,
@@ -844,7 +876,7 @@
 				2EC9E8171E85B468001EF407 /* CLLocationManager+Rx.swift in Sources */,
 				2EC358291E5B7DFD0002C92F /* Campaign.swift in Sources */,
 				2EB70A3C1E65BF9D000DB1C9 /* Dependencies.swift in Sources */,
-				2E92ED961E5C67A7003DA8D5 /* PlacemarkAnnotationView.swift in Sources */,
+				2E102DB11EB0F46500737A99 /* GoogleMaps+Additions.swift in Sources */,
 				2E8130C11E535B8300D7E70D /* Company.swift in Sources */,
 				2EB70A311E65BF8B000DB1C9 /* ReachabilityService.swift in Sources */,
 				2E102DAE1EB0E23A00737A99 /* Config.swift in Sources */,

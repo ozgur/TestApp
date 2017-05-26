@@ -77,8 +77,8 @@ class LaunchViewController: ViewController {
       viewController.transitioningDelegate = self
       viewController.modalPresentationStyle = .custom
 
-      self.stopAnimating()
       self.present(viewController, animated: true, completion: nil)
+      self.stopAnimating()
     }
   }
   

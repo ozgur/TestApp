@@ -12,7 +12,7 @@ import MapKit
 
 enum MKDirectionsResult {
   case failure(Error)
-  case success(Placemark, [MKRoute])
+  case success(MKPlacemark, [MKRoute])
 }
 
 // MARK: MKMapView

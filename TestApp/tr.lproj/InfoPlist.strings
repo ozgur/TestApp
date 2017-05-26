@@ -6,7 +6,8 @@
   Copyright © 2017 Ozgur. All rights reserved.
 */
 
-"NSLocationAlwaysUsageDescription" = "Etrafınızdaki kampanyaları öğrenebilmemiz için lokasyon bilginize ihtiyacımız var.";
+"NSLocationAlwaysUsageDescription" = "Etrafınızdaki kampanyaları bulabilmemiz için lokasyon bilginize ihtiyacımız var.";
+"NSLocationWhenInUseUsageDescription" = "Etrafınızdaki kampanyaları bulabilmemiz için lokasyon bilginize ihtiyacımız var.";
 "NSCameraUsageDescription" = "TestApp kameranıza erişim izni istiyor.";
 "NSPhotoLibraryUsageDescription" = "TestApp fotoğraf galerinize erişim izni istiyor.";
 "NSCalendarsUsageDescription" = "TestApp takviminize erişim izni istiyor.";

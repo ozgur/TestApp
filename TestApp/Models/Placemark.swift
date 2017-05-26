@@ -6,22 +6,37 @@
 //  Copyright © 2017 Ozgur. All rights reserved.
 //
 
-import MapKit
+import CoreLocation
+import GoogleMaps
 import ObjectMapper
 
 // MARK: Placemark
 
-class Placemark: NSObject, Mappable {
+class Placemark: NSObject, Mappable, GMSMarkable {
   
-  var name: String!
+  var name: String! {
+    didSet {
+      marker.title = name
+    }
+  }
+  
   var slug: String!
   var attendant: String?
   var info: String?
   
   var id: Int = NSNotFound
   var isAvailable: Bool = false
-  var coordinate: CLLocationCoordinate2D = kCLLocationCoordinate2DInvalid
-  var company: Company?
+  var coordinate = kCLLocationCoordinate2DInvalid {
+    didSet {
+      marker.position = coordinate
+    }
+  }
+  var company: Company? {
+    didSet {
+      marker.snippet = company?.name
+      marker.icon = company?.thumbnail
+    }
+  }
   var campaigns: [Campaign] = []
   var address: Address?
   
@@ -49,28 +64,17 @@ class Placemark: NSObject, Mappable {
     if address == nil {
       address <- map["address"]
     }
-    
   }
-}
+  
+  var marker: GMSMarker = {
+    let marker = GMSMarker()
+    marker.appearAnimation = GMSMarkerAnimation.pop
+    marker.tracksInfoWindowChanges = true
+    return marker
+  }()
 
-// MARK: MKAnnotation
-
-extension Placemark: MKAnnotation {
-  
-  var title: String? {
-    return name
-  }
-  
-  var subtitle: String? {
-    return company?.name
-  }
-  
   var radar: PlacemarkRadar {
     return PlacemarkRadar(placemark: self, radius: 300.0)
-  }
-  
-  var placemark: MKPlacemark {
-    return MKPlacemark(coordinate: coordinate)
   }
   
   override var description: String {

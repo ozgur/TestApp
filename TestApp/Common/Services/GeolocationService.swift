@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ozgur. All rights reserved.
 //
 
-import CoreLocation
+import MapKit
 import RxCocoa
 import RxSwift
 import SwiftyUserDefaults
@@ -18,12 +18,12 @@ final class GeolocationService: NSObject {
   
   private(set) var authorization: Driver<Bool>
   private(set) var location: Driver<CLLocation>
-
+  
   let error: Observable<NSError>
   let heading: Observable<CLHeading>
   let enteredRegion: Observable<CLRegion>
   let exitedRegion: Observable<CLRegion>
-
+  
   var authorizationGranted: Driver<Void> {
     return authorization.filter { $0 }.mapToVoid()
   }
@@ -58,7 +58,7 @@ final class GeolocationService: NSObject {
     locationManager.headingFilter = 2.0
     
     let desiredStatus = type(of: self).desiredAuthorizationStatus
-
+    
     authorization = Observable<CLAuthorizationStatus>.deferred {
       [weak locationManager] () -> Observable<CLAuthorizationStatus> in
       
@@ -99,6 +99,35 @@ final class GeolocationService: NSObject {
         return lhs.coordinate == rhs.coordinate
     }
     super.init()
+  }
+  
+  func routes(to destination: MKMapItem, via: MKDirectionsTransportType)
+    -> Observable<MKDirectionsResult> {
+      
+      return Observable.create { observer in
+                
+        let request = MKDirectionsRequest()
+        
+        request.source = MKMapItem.forCurrentLocation()
+        request.destination = destination
+        request.requestsAlternateRoutes = false
+        request.departureDate = Date()
+        
+        let directions = MKDirections(request: request)
+        directions.calculate { response, error in
+          if let error = error {
+            observer.onNext(.failure(error))
+          }
+          else {
+            observer.onNext(
+              .success(destination.placemark, response?.routes ?? []))
+          }
+          observer.onCompleted()
+        }
+        return Disposables.create {
+          directions.cancel()
+        }
+      }
   }
   
   func start() {

@@ -79,6 +79,8 @@
 	<string>NSCameraUsageDescription</string>
 	<key>NSContactsUsageDescription</key>
 	<string>NSContactsUsageDescription</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>NSLocationAlwaysUsageDescription</string>
 	<key>NSPhotoLibraryUsageDescription</key>

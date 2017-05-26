@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, willFinishLaunchingWithOptions
     launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     
-    Defaults[.distanceFilter] = 5000 // TODO: This will be specified by user later on.
+    Defaults[.distanceFilter] = 20000 // TODO: This will be specified by user later on.
     
     configure()
     return true

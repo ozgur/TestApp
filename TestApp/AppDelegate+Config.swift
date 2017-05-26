@@ -32,7 +32,7 @@ extension AppDelegate {
   }
   
   private func configureGoogleMapsAPI() {
-    GMSServices.provideAPIKey(Config.default.GoogleMapsAPIKey)
+    GMSServices.provideAPIKey(Config.default.GMapsAPIKey)
   }
   
   func configure() {
